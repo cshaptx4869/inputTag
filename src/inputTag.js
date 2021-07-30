@@ -46,6 +46,10 @@
                     that.removeItem($(this).parent('span'));
                 });
 
+                this.elem.parent().on('click', function () {
+                    that.elem.focus();
+                });
+
                 this.elem.keydown(function (event) {
                     var keyNum = (event.keyCode ? event.keyCode : event.which);
                     if (keyNum === 8) {

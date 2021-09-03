@@ -13,6 +13,8 @@
                 elem: '.fairy-tag-input',
                 theme: ['fairy-bg-red', 'fairy-bg-orange', 'fairy-bg-green', 'fairy-bg-cyan', 'fairy-bg-blue', 'fairy-bg-black'],
                 data: [],
+                removeKeyNum: 8,
+                createKeyNum: 13,
                 permanentData: [],
             };
 
@@ -52,14 +54,14 @@
 
                 this.elem.keydown(function (event) {
                     var keyNum = (event.keyCode ? event.keyCode : event.which);
-                    if (keyNum === 8) {
+                    if (keyNum === that.options.removeKeyNum) {
                         if (!that.elem.val().trim()) {
                             var closeItems = that.elem.parent().find('a');
                             if (closeItems.length) {
                                 that.removeItem($(closeItems[closeItems.length - 1]).parent('span'));
                             }
                         }
-                    } else if (keyNum === 13) {
+                    } else if (keyNum === that.options.createKeyNum) {
                         that.createItem();
                     }
                 });

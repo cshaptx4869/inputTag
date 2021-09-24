@@ -55,6 +55,8 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
         elem: '.tag1',
         data: ['hello', 'world', 'tom', 'jerry'],//初始值
         permanentData: ['hello'],//不允许删除的值
+        removeKeyNum: 8,//删除按键编号 默认，BackSpace 键
+        createKeyNum: 13,//创建按键编号 默认，Enter 键
         onChange: function (value) {
             console.log(value);
             $('#tag1').text(JSON.stringify(value));
@@ -116,6 +118,8 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
             elem: '.tag1',
             data: ['hello', 'world', 'tom', 'jerry'],//初始值
             permanentData: ['hello'],//不允许删除的值
+            removeKeyNum: 8,//删除按键编号 默认，BackSpace 键
+            createKeyNum: 13,//创建按键编号 默认，Enter 键
             onChange: function (value) {
                 console.log(value);
                 $('#tag1').text(JSON.stringify(value));

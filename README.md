@@ -10,11 +10,11 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
 
 [在线演示](https://www.jq22.com/yanshi23961)
 
-![Snipaste_2021-07-29_13-02-44.png](https://i.loli.net/2021/07/29/MzX4t78ej2xfqYH.png)
+![](https://images.gitee.com/uploads/images/2021/1225/132536_6b9bfaae_5507348.png)
 
 
 
-![Video_20210729130431 00_00_00-00_00_30.gif](https://i.loli.net/2021/07/29/TzVSvQGpqH5LZlY.gif)
+![](https://images.gitee.com/uploads/images/2021/1225/132713_904ac333_5507348.gif)
 
 
 

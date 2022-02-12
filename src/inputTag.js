@@ -65,27 +65,31 @@
                         that.createItem();
                     }
                 });
-
-                this.onChange();
             }
 
             createItem() {
                 var value = this.elem.val().trim();
                 if (!value) return false;
+                if (this.options.beforeCreate && typeof this.options.beforeCreate === 'function') {
+                    var modifiedValue = this.options.beforeCreate(value);
+                    if (typeof modifiedValue == 'string' && modifiedValue) {
+                        value = modifiedValue;
+                    }
+                }
                 if (!this.options.data.includes(value)) {
                     this.options.data.push(value);
                     this.elem.before(this.spanHtml(value));
+                    this.onChange(value, 'create');
                 }
                 this.elem.val('');
-                this.onChange();
             }
 
             removeItem(target) {
                 var that = this;
                 var closeSpan = target.remove(),
                     closeSpanText = $(closeSpan).children('span').text();
-                that.options.data.splice($.inArray(closeSpanText, that.options.data), 1);
-                that.onChange();
+                var value = that.options.data.splice($.inArray(closeSpanText, that.options.data), 1);
+                value.length === 1 && that.onChange(value[0], 'remove');
             }
 
             randomColor() {
@@ -99,8 +103,8 @@
                     '</span>';
             }
 
-            onChange() {
-                this.options.onChange && typeof this.options.onChange === 'function' && this.options.onChange(this.options.data);
+            onChange(value, type) {
+                this.options.onChange && typeof this.options.onChange === 'function' && this.options.onChange(this.options.data, value, type);
             }
         }
 

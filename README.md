@@ -60,9 +60,9 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
         beforeCreate: function (val) {//添加前操作，必须返回字符串才有效
             return val + '(XoX)';
         },
-        onChange: function (value) {
-            console.log(value);
-            $('#tag1').text(JSON.stringify(value));
+        onChange: function (data, value, type) {
+            console.log(arguments);
+            $('#tag1').text(JSON.stringify(data));
         }
     });
 
@@ -70,9 +70,9 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
         elem: '.tag2',
         data: ['你好', '世界', '汤姆', '杰瑞'],
         permanentData: ['世界'],
-        onChange: function (value) {
-            console.log(value);
-            $('#tag2').text(JSON.stringify(value));
+        onChange: function (data, value, type) {
+            console.log(arguments);
+            $('#tag2').text(JSON.stringify(data));
         }
     });
 </script>
@@ -126,9 +126,9 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
             beforeCreate: function (val) {//添加前操作，必须返回字符串才有效
             	return val + '(XoX)';
         	},
-            onChange: function (value) {
-                console.log(value);
-                $('#tag1').text(JSON.stringify(value));
+            onChange: function (data, value, type) {
+                console.log(arguments);
+                $('#tag1').text(JSON.stringify(data));
             }
         });
 
@@ -136,9 +136,9 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
             elem: '.tag2',
             data: ['你好', '世界', '汤姆', '杰瑞'],
             permanentData: ['世界'],
-            onChange: function (value) {
-                console.log(value);
-                $('#tag2').text(JSON.stringify(value));
+            onChange: function (data, value, type) {
+                console.log(arguments);
+                $('#tag2').text(JSON.stringify(data));
             }
         });
     })

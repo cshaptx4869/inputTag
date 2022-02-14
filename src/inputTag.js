@@ -71,7 +71,8 @@
                 var value = this.elem.val().trim();
                 if (!value) return false;
                 if (this.options.beforeCreate && typeof this.options.beforeCreate === 'function') {
-                    var modifiedValue = this.options.beforeCreate(value);
+                    var copyData = {...this.options.data};
+                    var modifiedValue = this.options.beforeCreate(copyData, value);
                     if (typeof modifiedValue == 'string' && modifiedValue) {
                         value = modifiedValue;
                     }
@@ -104,7 +105,8 @@
             }
 
             onChange(value, type) {
-                this.options.onChange && typeof this.options.onChange === 'function' && this.options.onChange(this.options.data, value, type);
+                var copyData = {...this.options.data};
+                this.options.onChange && typeof this.options.onChange === 'function' && this.options.onChange(copyData, value, type);
             }
         }
 

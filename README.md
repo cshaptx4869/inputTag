@@ -57,7 +57,7 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
         permanentData: ['hello'],//不允许删除的值
         removeKeyNum: 8,//删除按键编号 默认，BackSpace 键
         createKeyNum: 13,//创建按键编号 默认，Enter 键
-        beforeCreate: function (val) {//添加前操作，必须返回字符串才有效
+        beforeCreate: function (data, value) {//添加前操作，必须返回字符串才有效
             return val + '(XoX)';
         },
         onChange: function (data, value, type) {
@@ -123,7 +123,7 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
             permanentData: ['hello'],//不允许删除的值
             removeKeyNum: 8,//删除按键编号 默认，BackSpace 键
             createKeyNum: 13,//创建按键编号 默认，Enter 键
-            beforeCreate: function (val) {//添加前操作，必须返回字符串才有效
+            beforeCreate: function (data, value) {//添加前操作，必须返回字符串才有效
             	return val + '(XoX)';
         	},
             onChange: function (data, value, type) {

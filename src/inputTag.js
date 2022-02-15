@@ -69,19 +69,25 @@
 
             createItem() {
                 var value = this.elem.val().trim();
-                if (!value) return false;
+
                 if (this.options.beforeCreate && typeof this.options.beforeCreate === 'function') {
                     var copyData = [...this.options.data];
                     var modifiedValue = this.options.beforeCreate(copyData, value);
                     if (typeof modifiedValue == 'string' && modifiedValue) {
                         value = modifiedValue;
+                    } else {
+                        value = '';
                     }
                 }
-                if (!this.options.data.includes(value)) {
-                    this.options.data.push(value);
-                    this.elem.before(this.spanHtml(value));
-                    this.onChange(value, 'create');
+
+                if (value) {
+                    if (!this.options.data.includes(value)) {
+                        this.options.data.push(value);
+                        this.elem.before(this.spanHtml(value));
+                        this.onChange(value, 'create');
+                    }
                 }
+
                 this.elem.val('');
             }
 

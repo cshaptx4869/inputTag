@@ -22,6 +22,10 @@
                 return $(this.options.elem);
             }
 
+            get copyData() {
+                return [...this.options.data];
+            }
+
             constructor(options) {
                 this.render(options);
             }
@@ -71,8 +75,7 @@
                 var value = this.elem.val().trim();
 
                 if (this.options.beforeCreate && typeof this.options.beforeCreate === 'function') {
-                    var copyData = [...this.options.data];
-                    var modifiedValue = this.options.beforeCreate(copyData, value);
+                    var modifiedValue = this.options.beforeCreate(this.copyData, value);
                     if (typeof modifiedValue == 'string' && modifiedValue) {
                         value = modifiedValue;
                     } else {
@@ -111,8 +114,16 @@
             }
 
             onChange(value, type) {
-                var copyData = [...this.options.data];
-                this.options.onChange && typeof this.options.onChange === 'function' && this.options.onChange(copyData, value, type);
+                this.options.onChange && typeof this.options.onChange === 'function' && this.options.onChange(this.copyData, value, type);
+            }
+
+            getData() {
+                return this.copyData;
+            }
+
+            clearData() {
+                this.options.data = [];
+                this.elem.prevAll('span.fairy-tag').remove();
             }
         }
 

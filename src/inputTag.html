@@ -30,21 +30,26 @@
     }).use(['inputTag', 'jquery'], function () {
         var $ = layui.jquery, inputTag = layui.inputTag;
 
-        inputTag.render({
+        var tagObj1 = inputTag.render({
             elem: '.tag1',
             data: ['hello', 'world', 'tom', 'jerry'],//初始值
             permanentData: ['hello'],//不允许删除的值
             removeKeyNum: 8,//删除按键编号 默认，BackSpace 键
             createKeyNum: 13,//创建按键编号 默认，Enter 键
             beforeCreate: function (data, value) {//添加前操作，必须返回字符串才有效
-                console.log(arguments);
+                console.log('beforeCreate', arguments);
                 return value + '(XoX)';
             },
             onChange: function (data, value, type) {
-                console.log(arguments);
+                console.log('onChange', arguments);
                 $('#tag1').text(JSON.stringify(data));
             }
         });
+
+        // //清空数据方法
+        // tagObj1.clearData();
+        // //获取数据方法
+        // tagObj1.getData();
 
         inputTag.render({
             elem: '.tag2',

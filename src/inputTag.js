@@ -63,10 +63,12 @@
                             var closeItems = that.elem.parent().find('a');
                             if (closeItems.length) {
                                 that.removeItem($(closeItems[closeItems.length - 1]).parent('span'));
+                                event.preventDefault();
                             }
                         }
                     } else if (keyNum === that.options.createKeyNum) {
                         that.createItem();
+                        event.preventDefault();
                     }
                 });
             }

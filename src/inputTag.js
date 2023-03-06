@@ -16,6 +16,7 @@
                 removeKeyNum: 8,
                 createKeyNum: 13,
                 permanentData: [],
+                sortable: false
             };
 
             get elem() {
@@ -71,6 +72,21 @@
                         event.preventDefault();
                     }
                 });
+
+                if (this.options.sortable) {
+                    Sortable.create(this.elem.parent()[0], {
+                        handle: 'span',
+                        onSort: function (event) {
+                            that.options.data = that.elem.parent()
+                                .find('span.fairy-tag>span')
+                                .map(function (index, item) {
+                                    return $(item).text();
+                                }).toArray();
+
+                            that.onChange($(event.item).children('span').text(), 'sort');
+                        }
+                    });
+                }
             }
 
             createItem() {

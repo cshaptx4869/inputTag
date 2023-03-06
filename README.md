@@ -48,6 +48,7 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
     <div id="tag2"></div>
 </div>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <!-- 引入js -->
 <script src="./inputTag.js"></script>
 <script>
@@ -70,6 +71,7 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
         elem: '.tag2',
         data: ['你好', '世界', '汤姆', '杰瑞'],
         permanentData: ['世界'],
+        sortable: true, // 拖拽排序，依赖 https://github.com/SortableJS/Sortable
         onChange: function (data, value, type) {
             console.log(arguments);
             $('#tag2').text(JSON.stringify(data));
@@ -110,6 +112,7 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
     <div id="tag2"></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/layui/2.6.8/layui.js" integrity="sha512-lH7rGfsFWwehkeyJYllBq73IsiR7RH2+wuOVjr06q8NKwHp5xVnkdSvUm8RNt31QCROqtPrjAAd1VuNH0ISxqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <!-- 引入js -->
 <script>
     layui.config({
@@ -136,6 +139,7 @@ InputTag 组件。按回车键(Enter)生成标签！按回退键(Backspace)删�
             elem: '.tag2',
             data: ['你好', '世界', '汤姆', '杰瑞'],
             permanentData: ['世界'],
+            sortable: true, // 拖拽排序，依赖 https://github.com/SortableJS/Sortable
             onChange: function (data, value, type) {
                 console.log(arguments);
                 $('#tag2').text(JSON.stringify(data));
